@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, ExternalLink, Sparkles, CheckCircle2, ShieldCheck, Zap, Award, Building2 } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { ArrowRight, ExternalLink, Sparkles, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import { LinkedinIcon } from "@/components/Icons";
+import MagneticButton from "@/components/MagneticButton";
+import TerminalCard from "@/components/TerminalCard";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 
 export default function Hero() {
@@ -61,7 +63,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-32 overflow-hidden bg-grid-pattern">
+    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-grid-pattern">
       {/* Dynamic ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[350px] sm:h-[650px] bg-blue-500/8 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none -z-10 animate-pulse-glow" />
       <div className="absolute top-1/3 right-4 sm:right-10 w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] bg-indigo-500/8 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none -z-10" />
@@ -101,42 +103,45 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl px-2"
           >
-            Hi, I&apos;m <strong className="text-slate-900 font-semibold">{PERSONAL_INFO.name}</strong>. Full-stack developer with enterprise platform experience at <strong>Jio Platforms</strong>, building ultra-fast, responsive, and beautifully animated websites that turn visitors into clients.
+            Hi, I&apos;m <strong className="text-slate-900 font-semibold">{PERSONAL_INFO.name}</strong>. Full-stack developer with enterprise platform background at <strong>Jio Platforms</strong>, building ultra-fast, responsive websites that turn visitors into clients.
           </motion.p>
 
-          {/* Action CTAs */}
+          {/* Action CTAs with Magnetic Buttons */}
           <motion.div
             variants={itemVariants}
             className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto px-4 sm:px-0"
           >
-            <motion.a
-              whileHover={{ scale: 1.03, translateY: -2 }}
-              whileTap={{ scale: 0.97 }}
-              href="#projects"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 flex items-center justify-center gap-2 transition-colors cursor-pointer"
-            >
-              <span>Explore Portfolio Work</span>
-              <ArrowRight className="w-4 h-4" />
-            </motion.a>
+            <MagneticButton strength={20}>
+              <a
+                href="#projects"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <span>Explore Selected Work</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </MagneticButton>
 
-            <motion.a
-              whileHover={{ scale: 1.03, translateY: -2 }}
-              whileTap={{ scale: 0.97 }}
-              href={PERSONAL_INFO.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all hover:border-slate-300"
-            >
-              <LinkedinIcon className="w-4 h-4 text-blue-600" />
-              <span>LinkedIn Profile</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-            </motion.a>
+            <MagneticButton strength={15}>
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all hover:border-slate-300"
+              >
+                <LinkedinIcon className="w-4 h-4 text-blue-600" />
+                <span>LinkedIn Profile</span>
+                <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+              </a>
+            </MagneticButton>
           </motion.div>
+
+          {/* Interactive Terminal Command Card */}
+          <TerminalCard />
 
           {/* Key Value Badges */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl px-2 sm:px-0"
+            className="mt-12 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl px-2 sm:px-0"
           >
             {badges.map((badge) => {
               const Icon = badge.icon;

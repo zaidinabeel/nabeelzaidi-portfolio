@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustSection from "@/components/TrustSection";
 import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
+import BentoGrid from "@/components/BentoGrid";
+import GuaranteesSection from "@/components/GuaranteesSection";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import ContactSection from "@/components/ContactSection";
@@ -15,7 +16,8 @@ export default function Home() {
       <Hero />
       <TrustSection />
       <Projects />
-      <Skills />
+      <BentoGrid />
+      <GuaranteesSection />
       <Services />
       <Process />
       <ContactSection />
