@@ -4,7 +4,6 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight, ExternalLink, Sparkles, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 import { LinkedinIcon } from "@/components/Icons";
 import MagneticButton from "@/components/MagneticButton";
-import TerminalCard from "@/components/TerminalCard";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 
 export default function Hero() {
@@ -63,7 +62,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-grid-pattern">
+    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-32 overflow-hidden bg-grid-pattern">
       {/* Dynamic ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[350px] sm:h-[650px] bg-blue-500/8 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none -z-10 animate-pulse-glow" />
       <div className="absolute top-1/3 right-4 sm:right-10 w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] bg-indigo-500/8 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none -z-10" />
@@ -135,13 +134,10 @@ export default function Hero() {
             </MagneticButton>
           </motion.div>
 
-          {/* Interactive Terminal Command Card */}
-          <TerminalCard />
-
           {/* Key Value Badges */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl px-2 sm:px-0"
+            className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl px-2 sm:px-0"
           >
             {badges.map((badge) => {
               const Icon = badge.icon;
